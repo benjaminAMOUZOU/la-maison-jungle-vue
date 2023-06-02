@@ -13,8 +13,8 @@ export default {
 <template>
     <Header />
     <div className="row">
-        <Cart cart={cart} updateCart={updateCart} />
-        <ShoppingList cart={cart} updateCart={updateCart} />
+        <Cart/>
+        <ShoppingList/>
     </div>
     <Footer />
 </template>

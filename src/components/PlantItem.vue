@@ -1,28 +1,20 @@
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-
-    },
-    props: ['id', 'nom', 'water', 'category', 'light', 'price']
+    props: ['id', 'nom', 'water', 'category', 'light', 'price', 'image']
 }
 </script>
 
 <template>
     <div class="col-lg-3">
         <div :key=id class="card mb-4">
-            <img class="card-img-top" src="" alt="" />
+            <img class="card-img-top" src="{{ image }}" alt="" />
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h5 class="card-title">{{ nom }}</h5>
+                        <h5 class="card-title">{{ name }}</h5>
                     </div>
                     <div class="col text-end">
-                        <CareScale careType="water" scaleValue={{water}} />
+                        <!-- <CareScale careType="water" scaleValue={{water}} /> -->
                     </div>
                 </div>
 
@@ -31,7 +23,7 @@ export default {
                         <p class="card-text">{{ category }}</p>
                     </div>
                     <div class="col text-end">
-                        <CareScale careType="light" scaleValue={{light}} />
+                        <!-- <CareScale careType="light" scaleValue={{light}} /> -->
                     </div>
                 </div>
 
