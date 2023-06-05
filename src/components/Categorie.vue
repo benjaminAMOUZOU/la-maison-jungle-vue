@@ -6,11 +6,8 @@ export default {
         }
     },
     methods: {
-        updateCategorieEvent() {
-            this.$emit('update-categorie', this.categorie)
-        },
         resetCategorie() {
-            this.categorie = ""
+            categorie = ""
         }
     },
     watch: {
@@ -27,7 +24,6 @@ export default {
         <div class="row mb-3">
             <div class="offset-lg-3 col-lg-4 mt-2 me-0">
                 <select class="form-select form-select-sm" aria-label="Default select example" v-model=categorie>
-                    <!-- @change=updateCategorieEvent -->
                     <option value="" no-selection-option>Choisissez une catégorie</option>
                     <option value="Classique">Classique</option>
                     <option value="Extérieur">Extérieur</option>

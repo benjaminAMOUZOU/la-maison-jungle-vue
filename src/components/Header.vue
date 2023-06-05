@@ -1,8 +1,11 @@
 <script>
+import image from "../assets/logo.png"
+
 export default {
     data(){
         return {
-            title: "La maison jungle",
+            title: "LA MAISON JUNGLE",
+            logo: image
         }
     }
 }
@@ -13,8 +16,8 @@ export default {
         <div class="col-lg-12">
             <div class="alert alert-success">
                 <div class="text-end">
-                    <img src="../assets/logo.png" alt="Logo" class="logo" />
-                    <span className="fw-bold">{{title}}</span>
+                    <img :src="logo" alt="Logo" class="logo" />
+                    <span className="fw-bold" v-uppercase>{{title}}</span>
                 </div>
             </div>
         </div>

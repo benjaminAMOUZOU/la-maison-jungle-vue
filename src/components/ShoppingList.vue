@@ -17,6 +17,8 @@ export default {
                 this.plantFiltered = plantList.filter((plant) => {
                     return plant.category === categorie
                 })
+            } else {
+                this.plantFiltered = plantList
             }
         },
     },
@@ -32,10 +34,10 @@ export default {
             <Categorie @update-categorie="(categorie) => filtreCategorie(categorie)" />
         </div>
         <div class="row">
-            <PlantItem v-for="plant in plantFiltered" key={{plant.id}} id={{plant.id}} name={{plant.name}} category={{plant.category}}
-                cover={{plant.cover}} light={{plant.light}} water={{plant.water}} price={{plant.price}} />
+            <PlantItem v-for="plant in plantFiltered" :key="plant.id" :name="plant.name" :category="plant.category"
+                :cover="plant.cover" :light="plant.light" :water="plant.water" :price="plant.price" />
             <!-- cart={cart}
-                        updateCart={updateCart} -->
+                            updateCart={updateCart} -->
         </div>
     </div>
 </template>

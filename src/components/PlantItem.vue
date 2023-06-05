@@ -1,20 +1,23 @@
 <script>
+import CareScale from './CareSale.vue'
+
 export default {
-    props: ['id', 'nom', 'water', 'category', 'light', 'price', 'image']
+    props: ['name', 'water', 'category', 'light', 'price', 'cover'],
+    components: { CareScale }
 }
 </script>
 
 <template>
     <div class="col-lg-3">
-        <div :key=id class="card mb-4">
-            <img class="card-img-top" src="{{ image }}" alt="" />
+        <div class="card mb-4">
+            <img class="card-img-top" :src=cover alt="" />
             <div class="card-body">
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title">{{ name }}</h5>
                     </div>
                     <div class="col text-end">
-                        <!-- <CareScale careType="water" scaleValue={{water}} /> -->
+                        <CareScale careType="water" :scaleValue="water" />
                     </div>
                 </div>
 
@@ -23,7 +26,7 @@ export default {
                         <p class="card-text">{{ category }}</p>
                     </div>
                     <div class="col text-end">
-                        <!-- <CareScale careType="light" scaleValue={{light}} /> -->
+                        <CareScale careType="light" :scaleValue="light" />
                     </div>
                 </div>
 
@@ -44,6 +47,6 @@ export default {
 <style scoped>
 img {
     width: 100%;
-    height: 221;
+    height: 221px;
 }
 </style>
