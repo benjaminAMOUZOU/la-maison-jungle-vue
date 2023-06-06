@@ -17,7 +17,7 @@ export default {
             <div class="alert alert-success">
                 <div class="text-end">
                     <img :src="logo" alt="Logo" class="logo" />
-                    <span className="fw-bold" v-uppercase>{{title}}</span>
+                    <span className="fw-bold">{{title}}</span>
                 </div>
             </div>
         </div>

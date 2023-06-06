@@ -5,11 +5,13 @@ export default {
             categorie: ""
         }
     },
+
     methods: {
         resetCategorie() {
             categorie = ""
         }
     },
+
     watch: {
         categorie(newCategorie, oldCategorie) {
             this.$emit('update-categorie', newCategorie)

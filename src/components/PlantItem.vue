@@ -2,8 +2,29 @@
 import CareScale from './CareSale.vue'
 
 export default {
-    props: ['name', 'water', 'category', 'light', 'price', 'cover'],
-    components: { CareScale }
+    props: ['name', 'water', 'category', 'light', 'price', 'cover', 'cart'],
+
+    components: { CareScale },
+
+    methods: {
+        addToCart(name, price) {
+            const currentPlantAdded = this.cart.find((plant) => plant.name === name)
+
+            if (currentPlantAdded) {
+                const cartFilterdPlantAdded = this.cart.filter((plant) => plant.name !== name)
+
+                this.$emit('update-cart', [
+                    ...cartFilterdPlantAdded,
+                    { name, price, amount: currentPlantAdded.amount + 1 },
+                ])
+
+            } else {
+                this.$emit('update-cart', [...this.cart, { name, price, amount: 1 }])
+            }
+        }
+    },
+
+    emits: ['update-cart']
 }
 </script>
 
@@ -35,7 +56,7 @@ export default {
                 </div>
 
                 <div class="text-end mt-2">
-                    <button class="btn btn-outline-success btn-sm">
+                    <button class="btn btn-outline-success btn-sm" @click="addToCart(name, price)">
                         Ajouter
                     </button>
                 </div>

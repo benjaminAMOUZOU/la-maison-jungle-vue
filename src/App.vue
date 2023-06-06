@@ -5,16 +5,34 @@ import Cart from './components/Cart.vue';
 import ShoppingList from './components/ShoppingList.vue';
 
 export default {
-    components: { Header, Footer, Cart, ShoppingList }
+    data() {
+        return {
+            cart: [],
+            total: 0
+        }
+    },
 
+    components: { Header, Footer, Cart, ShoppingList },
+
+    methods: {
+        updateCart(cart) {
+            this.cart = cart
+            this.total = this.cart.reduce((acc, plantType) => acc + plantType.amount * plantType.price, 0)
+        },
+
+        clearCart() {
+            this.cart = []
+            this.total = 0
+        }
+    }
 }
 </script>
 
 <template>
     <Header />
     <div className="row">
-        <Cart/>
-        <ShoppingList/>
+        <ShoppingList :cart="cart" @update-cart="(cart) => updateCart(cart)" />
+        <Cart :cart="cart" @clear-cart="clearCart()" :total = "total"/>
     </div>
     <Footer />
 </template>

@@ -5,6 +5,7 @@ export default {
             mail: ""
         }
     },
+
     methods: {
         checkValue() {
             if (!this.mail.includes('@')) {
