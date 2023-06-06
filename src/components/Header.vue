@@ -1,11 +1,14 @@
 <script>
 import image from "../assets/logo.png"
+import vue from "../assets/vue.svg"
 
 export default {
-    data(){
+    data() {
         return {
             title: "LA MAISON JUNGLE",
-            logo: image
+            logo: image,
+            vue: vue,
+
         }
     }
 }
@@ -15,9 +18,14 @@ export default {
     <div class="row pt-4">
         <div class="col-lg-12">
             <div class="alert alert-success">
-                <div class="text-end">
-                    <img :src="logo" alt="Logo" class="logo" />
-                    <span className="fw-bold">{{title}}</span>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <img :src="vue" alt="logo vue" class="logo" />
+                    </div>
+                    <div>
+                        <img :src="logo" alt="Logo" class="logo" />
+                        <span className="fw-bold">{{ title }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,7 +33,7 @@ export default {
 </template>
 
 <style scoped>
-.logo{
+.logo {
     width: 32px;
     height: 32px;
 }

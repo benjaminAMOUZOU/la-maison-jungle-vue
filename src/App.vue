@@ -31,8 +31,8 @@ export default {
 <template>
     <Header />
     <div className="row">
+        <Cart :cart="cart" @clear-cart="clearCart()" :total="total" />
         <ShoppingList :cart="cart" @update-cart="(cart) => updateCart(cart)" />
-        <Cart :cart="cart" @clear-cart="clearCart()" :total = "total"/>
     </div>
     <Footer />
 </template>
