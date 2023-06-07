@@ -6,12 +6,6 @@ export default {
         }
     },
 
-    methods: {
-        resetCategorie() {
-            categorie = ""
-        }
-    },
-
     watch: {
         categorie(newCategorie, oldCategorie) {
             this.$emit('update-categorie', newCategorie)
@@ -33,7 +27,7 @@ export default {
                 </select>
             </div>
             <div class="col-lg-2 mt-2">
-                <button class="btn btn-outline-success btn-sm" @click=resetCategorie>
+                <button class="btn btn-outline-success btn-sm" @click="categorie = ''">
                     Reinitialiser
                 </button>
             </div>
