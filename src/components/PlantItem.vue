@@ -31,7 +31,7 @@ export default {
 <template>
     <div class="col-lg-3">
         <div class="card mb-4">
-            <img class="card-img-top" :src=cover alt="" />
+            <img class="card-img-top" :src="cover" alt="" />
             <div class="card-body">
                 <div class="row">
                     <div class="col">

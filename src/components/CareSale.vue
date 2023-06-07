@@ -21,9 +21,9 @@ export default {
 <template>
     <div>
         <span v-for="n in range">
-            <span v-if="scaleValue >= n" :key=n>
-                <img v-if="careType === 'light'" :src="sun" alt='sun-icon' />
-                <img v-else :src=water alt='water-icon' />
+            <span v-if="scaleValue >= n" :key="n">
+                <img v-if="careType === 'light'" :src="sun" alt="sun-icon" />
+                <img v-else :src="water" alt="water-icon" />
             </span>
         </span>
     </div>

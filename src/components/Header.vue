@@ -8,7 +8,6 @@ export default {
             title: "LA MAISON JUNGLE",
             logo: image,
             vue: vue,
-
         }
     }
 }
