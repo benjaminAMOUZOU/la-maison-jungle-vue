@@ -1,25 +1,19 @@
-<script>
-export default {
-    data() {
-        return {
-            categorie: ""
-        }
-    },
+<script setup>
+import { ref, watch } from "vue"
 
-    watch: {
-        categorie(newCategorie, oldCategorie) {
-            this.$emit('update-categorie', newCategorie)
-        }
-    }
-}
+const categorie = ref("")
+const emit = defineEmits(['update-categorie'])
 
+watch(categorie, async (newCategorie, oldCategorie) => {
+    emit('update-categorie', newCategorie)
+})
 </script>
 
 <template>
     <div class="col-lg-12 text-center">
         <div class="row mb-3">
             <div class="offset-lg-3 col-lg-4 mt-2 me-0">
-                <select class="form-select form-select-sm" aria-label="Default select example" v-model=categorie>
+                <select class="form-select form-select-sm" aria-label="Default select example" v-model="categorie">
                     <option value="" no-selection-option>Choisissez une catégorie</option>
                     <option value="Classique">Classique</option>
                     <option value="Extérieur">Extérieur</option>

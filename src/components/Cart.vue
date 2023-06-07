@@ -1,10 +1,6 @@
-<script>
-export default {
-
-    props: ['cart', 'total'],
-
-    emits: ['clear-cart']
-}
+<script setup>
+const props = defineProps(['cart', 'total'])
+const emit = defineEmits(['clear-cart'])
 </script>
 
 <template>

@@ -19,6 +19,9 @@ Une SPA (Single Page Application) réalisée avec la technologie Vue 3. Le but, 
 - Enfin, vérification de l'exactitude de l'adresse mail
 <br/><br/>
 
-### 4- La démo react ?
+### 4- Les branches
+Il existe deux branches, `options-api` et `compositions-api` qui correspondent respectivement aux deux styles d'API de vue.
+
+### 5- La démo react ?
 https://user-images.githubusercontent.com/58326757/172832445-b178e808-1e54-453a-830e-2a8f33e6e977.mp4
 <br/><br/>

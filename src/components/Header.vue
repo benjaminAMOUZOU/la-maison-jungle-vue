@@ -1,17 +1,9 @@
-<script>
+<script setup>
 import image from "../assets/logo.png"
 import vue from "../assets/vue.svg"
+import { ref } from "vue"
 
-export default {
-    data() {
-        return {
-            title: "LA MAISON JUNGLE",
-            logo: image,
-            vue: vue,
-
-        }
-    }
-}
+const title = ref("LA MAISON JUNGLE")
 </script>
 
 <template>
@@ -23,7 +15,7 @@ export default {
                         <img :src="vue" alt="logo vue" class="logo" />
                     </div>
                     <div>
-                        <img :src="logo" alt="Logo" class="logo" />
+                        <img :src="image" alt="Logo" class="logo" />
                         <span className="fw-bold">{{ title }}</span>
                     </div>
                 </div>

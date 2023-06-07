@@ -1,37 +1,30 @@
-<script>
-import CareScale from './CareSale.vue'
+<script setup>
+import CareScale from "./CareSale.vue"
 
-export default {
-    props: ['name', 'water', 'category', 'light', 'price', 'cover', 'cart'],
+const props = defineProps(['name', 'water', 'category', 'light', 'price', 'cover', 'cart'])
+const emit = defineEmits(['update-cart'])
 
-    components: { CareScale },
+function addToCart(name, price) {
+    const currentPlantAdded = props.cart.find((plant) => plant.name === name)
 
-    methods: {
-        addToCart(name, price) {
-            const currentPlantAdded = this.cart.find((plant) => plant.name === name)
+    if (currentPlantAdded) {
+        const cartFilterdPlantAdded = props.cart.filter((plant) => plant.name !== name)
 
-            if (currentPlantAdded) {
-                const cartFilterdPlantAdded = this.cart.filter((plant) => plant.name !== name)
+        emit('update-cart', [
+            ...cartFilterdPlantAdded,
+            { name, price, amount: currentPlantAdded.amount + 1 },
+        ])
 
-                this.$emit('update-cart', [
-                    ...cartFilterdPlantAdded,
-                    { name, price, amount: currentPlantAdded.amount + 1 },
-                ])
-
-            } else {
-                this.$emit('update-cart', [...this.cart, { name, price, amount: 1 }])
-            }
-        }
-    },
-
-    emits: ['update-cart']
+    } else {
+        emit('update-cart', [...props.cart, { name, price, amount: 1 }])
+    }
 }
 </script>
 
 <template>
     <div class="col-lg-3">
         <div class="card mb-4">
-            <img class="card-img-top" :src=cover alt="" />
+            <img class="card-img-top" :src="cover" alt="Image de la plante" />
             <div class="card-body">
                 <div class="row">
                     <div class="col">
